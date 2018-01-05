@@ -1,0 +1,96 @@
+.TH SELINK 1 "June 2014"
+.SH NAME
+Selink \- computes selection statistics over a dataset
+.SH SYNOPSiS
+.B selink
+[\fB-q\fR]
+[\fB-n \fIN\fR|\fB-l \fIN\fR [\fB-b\fR]\fR|\fB-P
+.IR FILE
+\fB-C \fIN\fR]
+[\fB-w\fR] [\fB-s\fR] [\fB-p\fR] [\fB-K\fR] [\fB-i\fR] [\fB-c
+.IR FILE\fR]
+[\fB-f
+.IR FILE\fR]
+[\fB-o
+.IR path_prefix\fR]
+[\fB-T\fR|\fB-a\fR]
+.IR path_prefix
+.SH DESCRIPTION
+Selink exists.
+.SH OPTIONS
+.TP
+.BR -q ", " --quiet
+Turns off printing of progress in console.
+.TP
+.BR -n ", " --numb " " \fIN
+Specify the size of analysis window in SNP number. (default 1000)
+.TP
+.BR -l ", " --lenw " " \fiN
+Specify the size of analysis window in base number.
+.TP
+.BR -b ", " --best
+Choose the nearest to the limit SNP instead of the last in range
+when using
+.BR -l \fR.
+.TP
+.BR -P ", " --pos " " \fIFILE " " \fB-C " " \fIN
+Use
+.I FILE
+as position of SNPs filter. Take position for the chromosome
+.I N\fR.
+(default all positions)
+.IP
+This option has never been tested. It may compute stats only centred
+on specified positions but it will takes into account non specified
+position for computing stats centred in specified positions anyway.
+.TP
+.BR -w ", " --omega
+Display more omega based statistics.
+.TP
+.BR -s ", " --ihs
+Display ihs statistics.
+.TP
+.BR -p ", " --pi
+Display piA/piD statistics.
+.TP
+.BR -K ", " --freq
+Display haplotipic frequency on window.
+.TP
+.BR -i ", " --inter
+Turns inter population statistics ON.
+.TP
+.BR -c ", " --comp " " \fIFILE
+Load omega vectors from
+.I FILE \fR.
+.IP
+This option has never been tested.
+.TP
+.BR -o ", " --outfile " " \fIpath_prefix
+Output results in
+.I path_prefix\fR_\fIPOP_ID\fR.out
+and
+.I path_prefix\fR.interpop
+instead of stdout.
+.TP
+.BR -f ", " --filter " " \fIFILE
+Use
+.I FILE
+as population filter with also merged populations in one. (default all population)
+.TP
+.BR -T ", " --hapfile
+Use .hap haplotypes file type instead of .phased file.
+.TP
+.BR -a ", " --arp
+Toggles .arp input file reading ON.
+.IP
+This option is unpluggeg for now.
+.TP
+.BR -v ", " --version
+Print version number and exit.
+.TP
+.BR -h ", " --help
+Print this man page and exit.
+.SH EXAMPLES
+
+.SH AUTHOR
+Pierre Boutillier <pierre.boutillier@laposte.net>

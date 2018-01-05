@@ -1,0 +1,21 @@
+2014-05-13  Pierre Boutillier <pierre.boutillier@laposte.net>
+	First milestone of the full rewriting
+	Regression : Parsing arp files is unplugged
+	* src/ihs.c: full rewriting
+	* src/data_aquisition.c: nearly full rewriting: no more memory
+	leak, compatible with line longer than 100 char in .legend
+	* src/stat.c: polymorphism, DAF, omega computes from ihs tree and
+	not the data directly
+
+2011-11-08  Eric Deveaud  <edeveaud@pasteur.fr>
+
+	* src/data_acquisition.c: .arp file parsing added.
+
+2011-11-08  Eric Deveaud  <edeveaud@pasteur.fr>
+
+	* src/data_acquisition.c: .legend, .phased, .sample parsing added.
+
+
+2011-10-17  Eric Deveaud  <edeveaud@pasteur.fr>
+
+	* src/selink.c: project initiated.
