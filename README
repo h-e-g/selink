@@ -1,0 +1,17 @@
+Compile from source
+-------------------
+
+If you get them from the repository, you need to do the first time
+# aclocal
+# autoheader
+# autoconf
+# automake --add-missing
+
+Then (or in any case), do
+# ./configure
+# make
+and optionnaly
+# make check
+
+If you need to regenerate the output of tests do
+# make REGENERATE=true check
