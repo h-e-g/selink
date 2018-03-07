@@ -5,10 +5,7 @@ Optimized window-based estimation of haplotype tests for positive selection
 
 If you've just clone the repository, you need to do once
 ```
-$ aclocal
-$ autoheader
-$ autoconf
-$ automake --add-missing
+$ autoreconf -i
 ```
 Then (or in any case), each time you want to recompile, do
 ```
