@@ -222,7 +222,8 @@ unsigned int Arp_reader(char *prefix, snp_t ***snp_res, sample_t ***sample_col) 
 		  i = 0;
 		  while (i < nlocis) {
 		    if ((snp = malloc(sizeof(snp_t))) == NULL) err(EXIT_FAILURE, "malloc failed");
-		    asprintf(&(snp->id), "%u", pos[i]);
+		    if (asprintf(&(snp->id), "%u", pos[i]) == -1)
+		      err(EXIT_FAILURE, "Failed to write an int");
 		    snp->pos = pos[i];
 		    snp->ancestor = ancestor[i];
 		    snp->a1 = snp->a2 = '\0';
