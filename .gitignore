@@ -1,0 +1,26 @@
+# autotools
+autom4te.cache/
+Makefile
+Makefile.in
+config.h.in
+config.h
+configure
+config.status
+config.log
+compile
+INSTALL
+aclocal.m4
+depcomp
+install-sh
+missing
+test-driver
+stamp-h1
+
+# binaries
+*.o
+.deps/
+src/selink
+
+# testsuite
+test/*.log
+test/*.trs
