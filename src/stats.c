@@ -40,6 +40,7 @@ static double Sigma_ii(unsigned int i, unsigned int n);
 /* compute sigma_ij see FU paper equation (3) */
 static double Sigma_ij(unsigned int i, unsigned int j, unsigned int n);
 
+double *HARMONICSUMS_CACHED;
 
 double SSD_WP (unsigned long c, unsigned int n) {
   return (c * (n - c)) / ((double) n);
@@ -54,18 +55,20 @@ double SSD_T(unsigned long c1, unsigned int n1,
 
 /* cache harmonic sums from 0 -> pop size */
 /* avoids to recompute HS for every value */
-double *Cache_HarmonicSums(unsigned long n){
-  double *hs;
+void Cache_HarmonicSums(unsigned long n){
   unsigned long i;
-  // prepare enough space to have HS values for n and n+1
-  hs = malloc(sizeof(double) * (n+1+1));
-  if (!hs) err(EXIT_FAILURE, "malloc failed");
-  
-  hs[0] = 0;
+  if (HARMONICSUMS_CACHED) err(EXIT_FAILURE, "HarmonicSums cached twice");
+  HARMONICSUMS_CACHED = malloc(sizeof(double) * (n+1+1));
+  if (!HARMONICSUMS_CACHED) err(EXIT_FAILURE, "malloc failed");
+
+  HARMONICSUMS_CACHED[0] = 0;
   for(i = 1; i <= n; i++) {
-	 hs[i] = hs[i-1] + 1.0/i;
+    HARMONICSUMS_CACHED[i] = HARMONICSUMS_CACHED[i-1] + 1.0/i;
   }
-  return hs;
+}
+
+void Free_HarmonicSums(){
+  free(HARMONICSUMS_CACHED);
 }
 
 /* returns harmonic sum for given value. */

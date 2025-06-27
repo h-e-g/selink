@@ -49,7 +49,8 @@ double Theta2_fromS(unsigned int popsize, unsigned int snpnb);
 
 /* cache harmonic sums from 0 -> pop size */
 /* avoids to recompute HS for every value */
-double *Cache_HarmonicSums(unsigned long n) ;
+void Cache_HarmonicSums(unsigned long n) ;
+void Free_HarmonicSums() ;
 
 /* compute equation (9) from Achaz paper */
 /* double Neutrality_test(unsigned int *ksi, unsigned int popsize, double theta1, double theta2);*/
@@ -57,7 +58,5 @@ void Neutrality_test_precomputation (unsigned int n, int w1,  int w2,
 				     double **W, double *alpha, double *beta);
 double Neutrality_test(unsigned int *xi, unsigned long n, double *W, double alpha,
 		       double beta, double theta, double theta2);
-
-double *HARMONICSUMS_CACHED;
 
 #endif

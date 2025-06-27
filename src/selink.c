@@ -329,7 +329,7 @@ int Go_compute (char *prefix, char *outfile, int arp_read, unsigned int winlen, 
   }
 
   /* cache harmonic sum used in various stats */
-  HARMONICSUMS_CACHED = Cache_HarmonicSums(data.nlocis);
+  Cache_HarmonicSums(data.nlocis);
 
 #if HAVE_PTHREAD_H
   if (threads > 1) {
@@ -392,7 +392,7 @@ int Go_compute (char *prefix, char *outfile, int arp_read, unsigned int winlen, 
 
   free_snpcol(data.nlocis,data.snp);
 
-  free(HARMONICSUMS_CACHED);
+  Free_HarmonicSums();
   free(posfile);
  #endif
 
