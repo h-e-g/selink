@@ -1,13 +1,13 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.63])
-AC_INIT([selink], [1.0], [pierre.boutillier@laposte.net, epatin@pasteur.fr, glaval@pasteur.fr])
+AC_PREREQ([2.72])
+AC_INIT([selink],[1.0],[pierre.boutillier@laposte.net, epatin@pasteur.fr, glaval@pasteur.fr])
 AC_CONFIG_SRCDIR([src/selink.c])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
-AC_PROG_CC_C99
+AC_PROG_CC
 AC_USE_SYSTEM_EXTENSIONS
 
 # Checks for libraries.
